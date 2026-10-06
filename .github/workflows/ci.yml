@@ -1,0 +1,36 @@
+name: Check website
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: JavaScript syntax
+        run: |
+          for f in js/*.js; do node --check "$f"; done
+
+      - name: Required files exist
+        run: |
+          for f in index.html privacy.html 404.html css/style.css js/app.js js/data.js assets/favicon.svg; do
+            test -f "$f" || { echo "::error::Missing $f"; exit 1; }
+          done
+
+      - name: Check local links and file references
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress --include-fragments '**/*.html'
+          fail: true
