@@ -3,6 +3,8 @@ name: Deploy website to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '15 3 * * *'   # daily rebuild so pre-rendered matches stay current
   workflow_dispatch:
 
 permissions:
@@ -24,14 +26,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Stage site files
-        run: |
-          mkdir _site
-          cp index.html privacy.html 404.html _site/
-          cp -r css js assets _site/
-          touch _site/.nojekyll
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - uses: actions/configure-pages@v5
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build site (pre-render data, SEO tags, sitemap)
+        run: node scripts/build.mjs
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://deeprowss.com' }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
