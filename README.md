@@ -1,38 +1,64 @@
 # Deeprowss Website
 
-A plain, mobile-first promotional site for the Deeprowss Android app. No build step — it runs on GitHub Pages as-is.
+A fast, mobile-first promotional site for the Deeprowss Android app. Plain HTML/CSS/JS plus one small Node build step (no dependencies).
 
 ## Structure
 ```
-index.html        main page
-privacy.html      privacy policy
-404.html          not-found page
-css/style.css     all styles
-js/data.js        ← edit this: APK link, support email, screenshots, matches, movies
-js/app.js         behaviour (menu, carousel, rendering from data.js)
-assets/           favicon, screenshots, posters, APK
+index.html, privacy.html, 404.html   pages (templates)
+css/style.css                        styles
+js/app.js                            menu, carousel, renders data from data/*.json
+data/site.json                       APK link, support email, screenshots
+data/matches.json                    upcoming matches
+data/movies.json                     latest movies
+scripts/build.mjs                    build: pre-render + SEO + sitemap -> _site/
+assets/                              icons, OG image, manifest, screenshots, posters, APK
+.github/workflows/                   pages.yml (deploy), ci.yml (checks)
 ```
 
-## Update content (js/data.js)
-- **APK link:** set `apkUrl`. A GitHub Release asset URL is recommended over committing the APK.
-- **Screenshots:** drop images into `assets/` and list them in `screenshots` (`{ src, alt }`). Empty list shows placeholders.
-- **Matches:** use `date: "2026-10-10T20:00"` for real fixtures. Finished matches are hidden automatically and a match shows "LIVE NOW" after kickoff. The sample `inDays` entries are placeholders — replace them.
-- **Movies:** add `poster: "assets/your-poster.webp"` for real artwork.
-- **Support email:** `supportEmail` (also update it in `privacy.html`).
+## Update content (edit the JSON, commit, push)
 
-## Before publishing
-1. Add your real APK (or set `apkUrl`) — `assets/deeprowss.apk` does not exist in this repo yet.
+**data/matches.json**
+```json
+{ "matches": [
+  { "home": "Arsenal", "away": "Chelsea", "date": "2026-10-10T17:30:00Z",
+    "competition": "Premier League", "venue": "Emirates Stadium" }
+]}
+```
+- `date` is an ISO timestamp with timezone (`Z` = UTC, or `+03:00`). Visitors see it in their local time.
+- `venue` and `competition` are optional (improves search results).
+- Finished matches are hidden automatically; a match shows "LIVE NOW" after kickoff.
+- `"sample": true` marks placeholder rows (`inDays` + `time` also work for samples). Samples are shown but **never** sent to search engines as structured data. Remove the flag on real entries.
+
+**data/movies.json**
+```json
+{ "movies": [ { "title": "Real Title", "year": 2026, "poster": "assets/posters/real-title.webp" } ] }
+```
+
+**data/site.json**: `apkUrl` (a GitHub Release asset URL is best), `supportEmail`, and `screenshots` (`[{ "src": "assets/shot-1.webp", "alt": "Home screen" }]`).
+
+## SEO (what's included)
+- Unique title and description, canonical URL, robots directives, Open Graph and Twitter cards with a 1200x630 image.
+- JSON-LD structured data: Organization, WebSite, MobileApplication, FAQPage (from the Troubleshooting section), plus SportsEvent and Movie/ItemList for real (non-sample) entries.
+- Matches and movies are **pre-rendered into the HTML** at build time, so crawlers see them without running JavaScript. The site rebuilds daily to keep upcoming matches fresh.
+- `sitemap.xml`, `robots.txt`, favicon, touch icons, web manifest, `lang`, semantic headings, `noindex` on the 404 page.
+
+### Custom domain: deeprowss.com
+The site is built for `https://deeprowss.com` (canonical URLs, social tags, sitemap and structured data all use it). To use a different address, set a repository variable `SITE_URL` (Settings → Secrets and variables → Actions → Variables).
+
+Set it up once:
+1. Settings → Pages → **Custom domain**: enter `deeprowss.com` and save, then tick **Enforce HTTPS** once it's available.
+2. At your domain registrar, add DNS records for the apex domain: four `A` records to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (and optionally `AAAA` records, see GitHub's docs). Add a `CNAME` record for `www` pointing to `deeprows.github.io`.
+3. Because the domain is at the root, `robots.txt` and `sitemap.xml` work normally. Add the site in Google Search Console and Bing Webmaster Tools and submit `https://deeprowss.com/sitemap.xml`.
+
+## Run locally
+```
+SITE_URL=http://localhost:8080 node scripts/build.mjs
+npx serve _site        # or: python3 -m http.server 8080 -d _site
+```
+
+## Publish
+Settings → Pages → Source: **GitHub Actions** (one time). Pushing to `main` runs `pages.yml`; it also runs daily and from the Actions tab. `ci.yml` checks JS, JSON, required files and links on pull requests and other branches.
+
+## Before going live
+1. Add the real APK (or set `apkUrl`); `assets/deeprowss.apk` does not exist yet.
 2. Replace the sample matches, movies and screenshots.
-
-## Publish on GitHub Pages
-Push to a repository, then Settings → Pages → deploy from the main branch (root).
-
-## What changed in this upgrade
-- Content moved to `js/data.js`; matches show relative day labels and expire on their own.
-- One config value now drives every download button and the support link.
-- Accessibility: skip link, visible focus, labelled carousel with keyboard/swipe support, Escape closes the menu, reduced-motion respected, semantic ordered list for install steps.
-- Carousel: real images supported, auto-advance only while visible, pauses on hover/touch/interaction.
-- SEO/sharing: meta description, Open Graph, theme colour, SVG favicon, 404 page.
-- Performance: fonts load via `<link>` with preconnect instead of a blocking CSS `@import`.
-- Removed the "replace the placeholders" note that was showing to visitors, and a no-op click handler.
-- Privacy page now mentions the Google Fonts request.
