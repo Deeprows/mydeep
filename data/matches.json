@@ -1,0 +1,7 @@
+{
+  "matches": [
+    { "home": "Team A", "away": "Team B", "inDays": 0, "time": "20:00", "competition": "Sample League", "sample": true },
+    { "home": "Team C", "away": "Team D", "inDays": 1, "time": "18:30", "competition": "Sample League", "sample": true },
+    { "home": "Team E", "away": "Team F", "inDays": 2, "time": "21:00", "competition": "Sample League", "sample": true }
+  ]
+}

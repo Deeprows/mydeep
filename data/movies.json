@@ -1,0 +1,8 @@
+{
+  "movies": [
+    { "title": "Movie Title One",   "year": 2026, "sample": true },
+    { "title": "Movie Title Two",   "year": 2026, "sample": true },
+    { "title": "Movie Title Three", "year": 2026, "sample": true },
+    { "title": "Movie Title Four",  "year": 2026, "sample": true }
+  ]
+}
