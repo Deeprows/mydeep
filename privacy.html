@@ -14,7 +14,7 @@
   <meta property="og:url" content="__SITE_URL__/privacy.html">
   <meta property="og:image" content="__SITE_URL__/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#070b10">
+  <meta name="theme-color" content="#060b1d">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -24,9 +24,18 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4d6d"/><stop offset="1" stop-color="#d6103a"/></linearGradient>
+    <symbol id="logo" viewBox="0 0 64 64">
+      <path d="M12 12c0-5 5-8 9.500-5.500l33 19.500c4.500 2.600 4.500 7.400 0 10l-33 19.500C17 58 12 55 12 50z" fill="url(#lg)"/>
+      <path d="M26 22.500v19l16.500-9.500z" fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="index.html" aria-label="Deeprowss home"><span class="brand-mark" aria-hidden="true">D</span><span>DEEPROWSS</span></a>
+  <a class="brand" href="index.html" aria-label="Deeprowss home"><svg class="logo" aria-hidden="true"><use href="#logo"/></svg><span>DEEP<b>ROWSS</b></span></a>
   <a class="back-link" href="index.html">← Back to Home</a>
 </header>
 <main id="main" class="legal section">
