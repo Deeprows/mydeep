@@ -21,16 +21,22 @@ jobs:
 
       - name: JavaScript syntax
         run: |
-          for f in js/*.js; do node --check "$f"; done
+          for f in js/*.js scripts/*.mjs; do node --check "$f"; done
 
       - name: Required files exist
         run: |
-          for f in index.html privacy.html 404.html css/style.css js/app.js js/data.js assets/favicon.svg; do
+          for f in index.html privacy.html 404.html css/style.css js/app.js scripts/build.mjs \
+                   data/site.json data/matches.json data/movies.json assets/favicon.svg assets/og-image.png; do
             test -f "$f" || { echo "::error::Missing $f"; exit 1; }
           done
 
-      - name: Check local links and file references
+      - name: Build (also validates the JSON data files)
+        run: node scripts/build.mjs
+        env:
+          SITE_URL: https://example.com
+
+      - name: Check links and file references in the built site
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --offline --no-progress --include-fragments '**/*.html'
+          args: --offline --no-progress --include-fragments '_site/**/*.html'
           fail: true
