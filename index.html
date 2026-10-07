@@ -3,19 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deeprowss | Watch More. No Ads.</title>
-  <meta name="description" content="Deeprowss for Android: upcoming football matches and the latest movies in one ad-free app.">
+  <title>Deeprowss: Free Football &amp; Movies App for Android | No Ads</title>
+  <meta name="description" content="Download Deeprowss, a free Android app for upcoming football matches and the latest movies, with no ads. Install guide and support included.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta name="theme-color" content="#070b10">
   <meta name="color-scheme" content="dark">
+  <meta name="application-name" content="Deeprowss">
+  <meta name="apple-mobile-web-app-title" content="Deeprowss">
+  <link rel="canonical" href="__SITE_URL__/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Deeprowss | Watch More. No Ads.">
+  <meta property="og:site_name" content="Deeprowss">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Deeprowss: Free Football &amp; Movies App for Android">
   <meta property="og:description" content="Upcoming football matches and the latest movies in one ad-free Android app.">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:url" content="__SITE_URL__/">
+  <meta property="og:image" content="__SITE_URL__/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Deeprowss app: watch football, no ads">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deeprowss: Free Football &amp; Movies App for Android">
+  <meta name="twitter:description" content="Upcoming football matches and the latest movies in one ad-free Android app.">
+  <meta name="twitter:image" content="__SITE_URL__/assets/og-image.png">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="assets/manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <!--build:jsonld--><!--/build:jsonld-->
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -47,8 +64,8 @@
         <p class="eyebrow">DEEPROWSS APP</p>
         <h1>Watch football.<br><span>No ads.</span></h1>
         <p class="hero-text">
-          Get the Deeprowss app and enjoy upcoming matches and more
-          from your Android device.
+          Deeprowss is a free Android app for upcoming football matches and
+          the latest movies, with no ads.
         </p>
         <a class="btn btn-primary" data-apk href="assets/deeprowss.apk" download>Download App</a>
         <p class="hero-meta">Free for Android. See <a href="#install">how to install</a>.</p>
@@ -92,9 +109,7 @@
         <span class="section-note">Watch on the app, no ads</span>
       </div>
 
-      <div class="matches" id="matches-list">
-        <p class="empty">Match times load with JavaScript. Open the app to see today's matches.</p>
-      </div>
+      <div class="matches" id="matches-list"><!--build:matches--><!--/build:matches--></div>
 
       <div class="center"><a class="btn btn-secondary" data-apk href="assets/deeprowss.apk" download>Download Deeprowss</a></div>
     </section>
@@ -108,9 +123,7 @@
         <span class="section-note">New on Deeprowss</span>
       </div>
 
-      <div class="movie-grid" id="movie-grid">
-        <p class="empty">Movies load with JavaScript. Open the app to browse the latest titles.</p>
-      </div>
+      <div class="movie-grid" id="movie-grid"><!--build:movies--><!--/build:movies--></div>
 
       <div class="center"><a class="btn btn-secondary" data-apk href="assets/deeprowss.apk" download>Watch on Deeprowss</a></div>
     </section>
@@ -172,7 +185,6 @@
     <small>© <span id="year">2026</span> Deeprowss. All rights reserved.</small>
   </footer>
 
-  <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
