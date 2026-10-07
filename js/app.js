@@ -1,6 +1,5 @@
 (() => {
   'use strict';
-  const D = window.DEEPROWSS || {};
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const el = (tag, props = {}, kids = []) => {
@@ -13,11 +12,17 @@
     kids.forEach(k => n.append(k));
     return n;
   };
+  const load = u => fetch(u).then(r => (r.ok ? r.json() : Promise.reject())).catch(() => null);
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* Year */
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
+
+  /* Content comes from data/*.json. If a fetch fails (e.g. opened from file://),
+     the pre-rendered HTML stays in place. */
+  Promise.all([load('data/site.json'), load('data/matches.json'), load('data/movies.json')]).then(([site, m, mv]) => {
+  const D = { ...(site || {}), matches: m && m.matches, movies: mv && mv.movies };
 
   /* Config: download + support links */
   if (D.apkUrl) $$('[data-apk]').forEach(a => a.setAttribute('href', D.apkUrl));
@@ -169,4 +174,5 @@
       new IntersectionObserver(([en]) => en.isIntersecting ? start() : stop(), { threshold: 0.4 }).observe(carousel);
     }
   }
+  });
 })();
