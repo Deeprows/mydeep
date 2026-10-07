@@ -102,14 +102,14 @@ a{
 
 .hero{
   overflow-x:clip;
-  min-height:650px;
+  min-height:540px;
   max-width:var(--max);
   margin:auto;
-  padding:90px 30px 70px;
+  padding:55px 30px 45px;
   display:grid;
   grid-template-columns:1.2fr .8fr;
   align-items:center;
-  gap:50px;
+  gap:40px;
 }
 
 .eyebrow{
@@ -117,7 +117,7 @@ a{
   font-weight:800;
   letter-spacing:.18em;
   color:var(--accent);
-  margin:0 0 12px;
+  margin:0 0 8px;
 }
 
 h1,
@@ -127,14 +127,10 @@ h3{
   margin-top:0;
 }
 
-/*
-  Updated:
-  "Watch football. No ads." stays on one line.
-*/
 h1{
   font-size:clamp(30px,7.5vw,84px);
   letter-spacing:-.065em;
-  margin-bottom:25px;
+  margin:0 0 18px;
   white-space:nowrap;
 }
 
@@ -145,13 +141,14 @@ h1 span{
 h2{
   font-size:clamp(30px,4vw,46px);
   letter-spacing:-.04em;
+  margin:0;
 }
 
 .hero-text{
   max-width:600px;
   color:var(--muted);
   font-size:18px;
-  margin-bottom:32px;
+  margin:0 0 24px;
 }
 
 .btn{
@@ -599,14 +596,19 @@ h2{
 
 /* ---------- Sections ---------- */
 
+/*
+  Reduced section spacing.
+  This is the main change for the index page.
+*/
+
 .section{
   max-width:var(--max);
   margin:auto;
-  padding:85px 30px;
+  padding:55px 30px;
 }
 
 .section-heading{
-  margin-bottom:35px;
+  margin-bottom:22px;
 }
 
 .row-heading{
@@ -629,7 +631,7 @@ h2{
   display:grid;
   grid-template-columns:auto 1fr auto;
   align-items:center;
-  gap:15px;
+  gap:12px;
 }
 
 .carousel-window{
@@ -644,7 +646,7 @@ h2{
 
 .slide{
   min-width:100%;
-  padding:15px;
+  padding:8px;
   flex:0 0 100%;
 }
 
@@ -680,7 +682,7 @@ h2{
   display:flex;
   justify-content:center;
   gap:4px;
-  margin-top:12px;
+  margin-top:8px;
 }
 
 .dot{
@@ -721,7 +723,7 @@ h2{
 
 .matches{
   display:grid;
-  gap:12px;
+  gap:10px;
 }
 
 .match-card{
@@ -729,14 +731,14 @@ h2{
   align-items:center;
   justify-content:space-between;
   gap:20px;
-  padding:22px 24px;
+  padding:20px 22px;
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:15px;
 }
 
 .match-card h3{
-  margin:7px 0 0;
+  margin:5px 0 0;
   font-size:19px;
 }
 
@@ -776,7 +778,7 @@ h2{
 
 .center{
   text-align:center;
-  margin-top:30px;
+  margin-top:22px;
 }
 
 /* ---------- Movies ---------- */
@@ -828,7 +830,7 @@ h2{
 
 .movie-card h3{
   font-size:14px;
-  margin:12px 0 2px;
+  margin:9px 0 2px;
 }
 
 .movie-card p{
@@ -858,7 +860,7 @@ h2{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:15px;
-  padding:25px;
+  padding:22px;
 }
 
 .steps span{
@@ -867,7 +869,7 @@ h2{
 }
 
 .steps h3{
-  margin:12px 0 7px;
+  margin:10px 0 6px;
 }
 
 .steps p,
@@ -884,7 +886,7 @@ h2{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:15px;
-  padding:25px;
+  padding:22px;
 }
 
 .compact{
@@ -892,14 +894,14 @@ h2{
 }
 
 .info-panel{
-  padding:40px;
+  padding:30px;
 }
 
 /* ---------- FAQ ---------- */
 
 .faq{
   display:grid;
-  gap:10px;
+  gap:8px;
 }
 
 .faq details{
@@ -908,7 +910,7 @@ h2{
 
 .faq summary{
   cursor:pointer;
-  padding:20px;
+  padding:17px 20px;
   font-weight:700;
   list-style:none;
   display:flex;
@@ -936,7 +938,7 @@ h2{
 }
 
 .faq p{
-  padding:0 20px 20px;
+  padding:0 20px 17px;
   margin:0;
 }
 
@@ -944,8 +946,8 @@ h2{
 
 .download-cta{
   max-width:var(--max);
-  margin:20px auto 90px;
-  padding:55px 45px;
+  margin:15px auto 60px;
+  padding:40px 40px;
 
   border:1px solid rgba(8,199,232,.4);
   border-radius:24px;
@@ -964,7 +966,7 @@ h2{
 }
 
 .download-cta h2{
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .download-cta p{
@@ -976,7 +978,7 @@ h2{
 .footer{
   max-width:var(--max);
   margin:auto;
-  padding:30px;
+  padding:25px 30px;
 
   display:flex;
   justify-content:space-between;
@@ -1078,7 +1080,7 @@ section[id],
 }
 
 .hero-meta{
-  margin:16px 0 0;
+  margin:12px 0 0;
   font-size:13px;
   color:var(--muted);
 }
@@ -1114,7 +1116,7 @@ section[id],
     background:#080d13;
     border-bottom:1px solid var(--line);
 
-    padding:18px 22px;
+    padding:14px 22px;
 
     flex-direction:column;
     align-items:flex-start;
@@ -1125,14 +1127,16 @@ section[id],
   }
 
   .nav a{
-    padding:10px 0;
+    padding:9px 0;
     width:100%;
   }
 
   .hero{
     grid-template-columns:1fr;
-    padding-top:65px;
+    min-height:auto;
+    padding:35px 20px 30px;
     text-align:center;
+    gap:25px;
   }
 
   .hero-text{
@@ -1151,10 +1155,15 @@ section[id],
   .row-heading{
     align-items:flex-start;
     flex-direction:column;
+    gap:6px;
   }
 
   .section{
-    padding:65px 20px;
+    padding:38px 20px;
+  }
+
+  .section-heading{
+    margin-bottom:18px;
   }
 
   .placeholder-screen{
@@ -1170,8 +1179,8 @@ section[id],
   }
 
   .download-cta{
-    margin:20px 20px 70px;
-    padding:35px 25px;
+    margin:15px 20px 50px;
+    padding:30px 25px;
     flex-direction:column;
     align-items:flex-start;
   }
@@ -1194,14 +1203,29 @@ section[id],
 
 @media(max-width:520px){
 
-  /*
-    Keep the complete hero heading on one line:
-    "Watch football. No ads."
-  */
   h1{
     font-size:clamp(30px,8.8vw,42px);
     letter-spacing:-.065em;
     white-space:nowrap;
+    margin-bottom:14px;
+  }
+
+  h2{
+    font-size:32px;
+  }
+
+  .hero{
+    padding:28px 16px 25px;
+    gap:20px;
+  }
+
+  .hero-text{
+    font-size:16px;
+    margin-bottom:18px;
+  }
+
+  .hero-meta{
+    margin-top:10px;
   }
 
   .carousel{
@@ -1222,6 +1246,18 @@ section[id],
     height:300px;
   }
 
+  .section{
+    padding:32px 16px;
+  }
+
+  .section-heading{
+    margin-bottom:16px;
+  }
+
+  .row-heading{
+    gap:4px;
+  }
+
   .match-card{
     align-items:flex-start;
     flex-direction:column;
@@ -1237,6 +1273,15 @@ section[id],
 
   .slide img{
     height:400px;
+  }
+
+  .download-cta{
+    margin:12px 16px 40px;
+    padding:28px 22px;
+  }
+
+  .footer{
+    padding:22px 20px;
   }
 }
 
