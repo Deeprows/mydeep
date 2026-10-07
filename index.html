@@ -6,7 +6,7 @@
   <title>Deeprowss: Free Football &amp; Movies App for Android | No Ads</title>
   <meta name="description" content="Download Deeprowss, a free Android app for upcoming football matches and the latest movies, with no ads. Install guide and support included.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <meta name="theme-color" content="#070b10">
+  <meta name="theme-color" content="#060b1d">
   <meta name="color-scheme" content="dark">
   <meta name="application-name" content="Deeprowss">
   <meta name="apple-mobile-web-app-title" content="Deeprowss">
@@ -35,12 +35,20 @@
   <!--build:jsonld--><!--/build:jsonld-->
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4d6d"/><stop offset="1" stop-color="#d6103a"/></linearGradient>
+    <symbol id="logo" viewBox="0 0 64 64">
+      <path d="M12 12c0-5 5-8 9.500-5.500l33 19.500c4.500 2.600 4.500 7.400 0 10l-33 19.500C17 58 12 55 12 50z" fill="url(#lg)"/>
+      <path d="M26 22.500v19l16.500-9.500z" fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Deeprowss home">
-      <span class="brand-mark" aria-hidden="true">D</span>
-      <span>DEEPROWSS</span>
+      <svg class="logo" aria-hidden="true"><use href="#logo"/></svg><span>DEEP<b>ROWSS</b></span>
     </a>
 
     <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
@@ -71,14 +79,41 @@
         <p class="hero-meta">Free for Android. See <a href="#install">how to install</a>.</p>
       </div>
 
-      <div class="hero-device" role="img" aria-label="Preview of the Deeprowss app on a phone">
+      <div class="hero-device" role="img" aria-label="Preview of the Deeprowss app showing live football events and the Live, Highlights, TV and Movies tabs">
         <div class="phone" aria-hidden="true">
-          <div class="phone-top"></div>
-          <div class="phone-screen">
-            <div class="mini-logo">DEEPROWSS</div>
-            <div class="mini-feature"></div>
-            <div class="mini-row"><i></i><i></i><i></i></div>
-            <div class="mini-row"><i></i><i></i><i></i></div>
+          <div class="phone-notch"></div>
+          <div class="app">
+            <div class="app-bar">
+              <span class="app-ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+              <span class="app-logo"><svg><use href="#logo"/></svg>DEEPROWSS</span>
+              <span class="app-ic"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.400-5.700M20 4v5h-5"/></svg></span>
+            </div>
+            <div class="app-banner"><span>📣 Welcome! Kindly share this app</span><span>›</span></div>
+            <p class="app-title"><i></i>Live Events</p>
+            <p class="app-sub">Today · times in your local timezone</p>
+            <div class="app-stats">
+              <div><b>2</b> Live now</div>
+              <div><b>3</b> Coming up</div>
+            </div>
+            <div class="app-pills"><span class="on">✓ All (5)</span><span>Live (2)</span><span>Upcoming (3)</span></div>
+            <p class="app-label live">LIVE · NOW</p>
+            <div class="app-match">
+              <div class="team"><span class="crest">HOM</span>Home FC</div>
+              <div class="mid"><span class="chip">League Cup</span><span class="time">1 : 0</span><span class="state">● LIVE 67'</span></div>
+              <div class="team"><span class="crest">AWY</span>Away FC</div>
+            </div>
+            <p class="app-label">UPCOMING · TODAY</p>
+            <div class="app-match">
+              <div class="team"><span class="crest">CTY</span>City</div>
+              <div class="mid"><span class="chip">League</span><span class="time">8:00 PM</span><span class="state soon">Coming up</span></div>
+              <div class="team"><span class="crest">UTD</span>United</div>
+            </div>
+            <div class="app-nav">
+              <span class="on"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.200 7.800a6 6 0 0 1 0 8.400M7.800 16.200a6 6 0 0 1 0-8.400M19 5a10 10 0 0 1 0 14M5 19A10 10 0 0 1 5 5"/></svg>Live</span>
+              <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.500v7l6-3.500z"/></svg>Highlights</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 3l4 4 4-4M10.500 11.500v5l4-2.500z"/></svg>TV</span>
+              <span><svg viewBox="0 0 24 24"><path d="M3 9h18v11H3zM3 9l2-5 4 1-2 4M9 5l4 1-2 4M13 6l4 1-2 4"/></svg>Movies</span>
+            </div>
           </div>
         </div>
       </div>
