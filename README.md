@@ -61,5 +61,5 @@ npx serve _site        # or: python3 -m http.server 8080 -d _site
 Settings → Pages → Source: **GitHub Actions** (one time). Pushing to `main` runs `pages.yml`; it also runs daily and from the Actions tab. `ci.yml` checks JS, JSON, required files and links on pull requests and other branches.
 
 ## Before going live
-1. Add the real APK (or set `apkUrl`); `assets/deeprowss.apk` does not exist yet.
+1. The APK is hosted on archive.org; the link is set as `apkUrl` in `data/site.json` and `js/data.js`.
 2. Replace the sample matches, movies and screenshots.
