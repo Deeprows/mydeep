@@ -1,8 +1,9 @@
 {
   "movies": [
-    { "title": "Movie Title One",   "year": 2026, "sample": true },
-    { "title": "Movie Title Two",   "year": 2026, "sample": true },
-    { "title": "Movie Title Three", "year": 2026, "sample": true },
-    { "title": "Movie Title Four",  "year": 2026, "sample": true }
+    { "title": "Primetime", "year": 2026, "sample": true },
+    { "title": "Dhamaal", "year": 2026, "sample": true },
+    { "title": "Clash of the Thundermans", "year": 2026, "sample": true },
+    { "title": "Rainbow On Mars", "year": 2026, "sample": true },
+    { "title": "Just Play Dead", "year": 2026, "sample": true }
   ]
 }
