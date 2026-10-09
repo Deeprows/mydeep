@@ -30,8 +30,9 @@ assets/                              icons, OG image, manifest, screenshots, pos
 - `"sample": true` marks placeholder rows (`inDays` + `time` also work for samples). Samples are shown but **never** sent to search engines as structured data. Remove the flag on real entries.
 
 **data/movies.json**
+- Use `image` for a remote poster URL or `poster` for a local asset path. Both fields are supported; `image` takes priority if both are present. If an image fails to load, the site shows a poster placeholder.
 ```json
-{ "movies": [ { "title": "Real Title", "year": 2026, "poster": "assets/posters/real-title.webp" } ] }
+{ "movies": [\n  { "title": "Primetime", "year": 2026, "image": "https://example.com/primetime-poster.jpg" },\n  { "title": "Another Movie", "year": 2026, "poster": "assets/posters/another-movie.webp" }\n] }
 ```
 
 **data/site.json**: `apkUrl` (a GitHub Release asset URL is best), `supportEmail`, and `screenshots` (`[{ "src": "assets/shot-1.webp", "alt": "Home screen" }]`).
