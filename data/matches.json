@@ -1,7 +1,32 @@
-{
-  "matches": [
-    { "home": "Team A", "away": "Team B", "inDays": 0, "time": "20:00", "competition": "Sample League", "sample": true },
-    { "home": "Team C", "away": "Team D", "inDays": 1, "time": "18:30", "competition": "Sample League", "sample": true },
-    { "home": "Team E", "away": "Team F", "inDays": 2, "time": "21:00", "competition": "Sample League", "sample": true }
-  ]
-}
+[
+  {
+    "id": "1",
+    "home": "Malaga",
+    "homeFlag": "https://media.api-sports.io/football/teams/573.png",
+    "away": "Espanyol",
+    "awayFlag": "https://media.api-sports.io/football/teams/540.png",
+    "league": "LaLiga",
+    "kickoff": "2026-10-09T20:00:00+01:00",
+    "duration": 130
+  },
+  {
+    "id": "2",
+    "home": "Borussia Dortmund",
+    "homeFlag": "https://media.api-sports.io/football/teams/165.png",
+    "away": "Werder Bremen",
+    "awayFlag": "https://media.api-sports.io/football/teams/162.png",
+    "league": "Bundesliga",
+    "kickoff": "2026-10-09T19:30:00+01:00",
+    "duration": 130
+  },
+  {
+    "id": "3",
+    "home": "Lens",
+    "homeFlag": "https://media.api-sports.io/football/teams/116.png",
+    "away": "Lyon",
+    "awayFlag": "https://media.api-sports.io/football/teams/Lyon.png",
+    "league": "Ligue 1",
+    "kickoff": "2026-10-09T19:45:00+01:00",
+    "duration": 130
+  }
+]
