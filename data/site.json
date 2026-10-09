@@ -1,6 +1,6 @@
 {
   "name": "Deeprowss",
-  "apkUrl": "assets/deeprowss.apk",
+  "apkUrl": "https://archive.org/download/deeprowss-v-1-1_202610/Deeprowss_v1%5B1%5D.apk",
   "supportEmail": "support@deeprowss.com",
   "screenshots": [
     { "src": "assets/app-live.webp", "alt": "Deeprowss Live Events screen showing today's football matches", "width": 1024, "height": 1536 },
