@@ -18,7 +18,7 @@ window.DEEPROWSS = {
     { home: "Team E", away: "Team F", inDays: 2, time: "21:00" }
   ],
 
-  // Movies: add `poster: "assets/poster.webp"` to show a real poster.
+  // Movies: add `image: "https://…/poster.jpg"` or `poster: "assets/poster.webp"` to show a poster.
   movies: [
     { title: "Movie Title One",   year: 2026 },
     { title: "Movie Title Two",   year: 2026 },
