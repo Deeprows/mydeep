@@ -1,9 +1,34 @@
 {
   "movies": [
-    { "title": "Primetime", "year": 2026, "sample": true },
-    { "title": "Dhamaal", "year": 2026, "sample": true },
-    { "title": "Clash of the Thundermans", "year": 2026, "sample": true },
-    { "title": "Rainbow On Mars", "year": 2026, "sample": true },
-    { "title": "Just Play Dead", "year": 2026, "sample": true }
+    {
+      "title": "Primetime",
+      "year": 2026,
+      "sample": true,
+      "image": "https://www.themoviedb.org/t/p/w1280/lmrulvLbmaejTix1YaMxo1oGhH1.jpg"
+    },
+    {
+      "title": "Dhamaal",
+      "year": 2026,
+      "sample": true,
+      "image": "https://media.themoviedb.org/t/p/w600_and_h900_face/5d7hpbefNiuebl5eqP5cRrckVxs.jpg"
+    },
+    {
+      "title": "Clash of the Thundermans",
+      "year": 2026,
+      "sample": true,
+      "image": "https://media.themoviedb.org/t/p/w600_and_h900_face/16oqRrWVzQm6qdGfBxvziZ2UiMT.jpg"
+    },
+    {
+      "title": "Rainbow On Mars",
+      "year": 2026,
+      "sample": true,
+      "image": "https://media.themoviedb.org/t/p/w600_and_h900_face/z8WR5OvENBgRYgfujQACZPemLVX.jpg"
+    },
+    {
+      "title": "Just Play Dead",
+      "year": 2026,
+      "sample": true,
+      "image": "https://media.themovied.org/t/p/w600_and_h900_face/glALx6QaIgw1u4joXsnfHTjWi6D.jpg"
+    }
   ]
 }
