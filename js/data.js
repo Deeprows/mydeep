@@ -3,8 +3,8 @@
 // ============================================================
 window.DEEPROWSS = {
   // Real APK link (e.g. a GitHub Release asset URL). Used by every download button.
-  apkUrl: "assets/deeprowss.apk",
-  supportEmail: "support@deeprowss.com",
+  apkUrl: "https://archive.org/download/deeprowss-v-1-1_202610/Deeprowss_v1%5B1%5D.apk",
+  supportEmail: "deeprows@gmail.com",
 
   // Add screenshots as { src: "assets/shot-1.webp", alt: "Home screen" }.
   // With an empty list, labelled placeholders are shown.
