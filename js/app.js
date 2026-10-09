@@ -108,8 +108,18 @@
     grid.replaceChildren();
     D.movies.forEach((m, i) => {
       const poster = el('div', { class: `poster poster-${(i % 4) + 1}` });
-      if (m.poster) poster.append(el('img', { src: m.poster, alt: `${m.title} poster`, loading: 'lazy', width: 300, height: 450 }));
-      else poster.append(el('span', { 'aria-hidden': 'true', text: `POSTER ${String(i + 1).padStart(2, '0')}` }));
+      const posterUrl = typeof m.image === 'string' && m.image.trim()
+        ? m.image.trim()
+        : (typeof m.poster === 'string' ? m.poster.trim() : '');
+      if (posterUrl) {
+        const img = el('img', { src: posterUrl, alt: `${m.title} poster`, loading: 'lazy', width: 300, height: 450 });
+        img.addEventListener('error', () => {
+          poster.replaceChildren(el('span', { 'aria-hidden': 'true', text: `POSTER ${String(i + 1).padStart(2, '0')}` }));
+        }, { once: true });
+        poster.append(img);
+      } else {
+        poster.append(el('span', { 'aria-hidden': 'true', text: `POSTER ${String(i + 1).padStart(2, '0')}` }));
+      }
       grid.append(el('article', { class: 'movie-card' }, [poster, el('h3', { text: m.title }), el('p', { text: String(m.year || '') })]));
     });
   }
