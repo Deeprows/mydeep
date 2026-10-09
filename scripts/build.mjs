@@ -58,10 +58,15 @@ const matchesHtml = upcoming.length
   : '\n        <p class="empty">No upcoming matches listed right now. Open the app for the latest schedule.</p>';
 
 const moviesHtml = moviesIn.length
-  ? moviesIn.map((m, i) => `
-        <article class="movie-card"><div class="poster poster-${(i % 4) + 1}">${m.poster
-          ? `<img src="${esc(m.poster)}" alt="${esc(m.title)} poster" loading="lazy" width="300" height="450">`
-          : `<span aria-hidden="true">POSTER ${String(i + 1).padStart(2, '0')}</span>`}</div><h3>${esc(m.title)}</h3><p>${esc(m.year || '')}</p></article>`).join('')
+  ? moviesIn.map((m, i) => {
+      const posterUrl = typeof m.image === 'string' && m.image.trim()
+        ? m.image.trim()
+        : (typeof m.poster === 'string' ? m.poster.trim() : '');
+      return `
+        <article class="movie-card"><div class="poster poster-${(i % 4) + 1}">${posterUrl
+          ? `<img src="${esc(posterUrl)}" alt="${esc(m.title)} poster" loading="lazy" width="300" height="450">`
+          : `<span aria-hidden="true">POSTER ${String(i + 1).padStart(2, '0')}</span>`}</div><h3>${esc(m.title)}</h3><p>${esc(m.year || '')}</p></article>`;
+    }).join('')
   : '\n        <p class="empty">Open the app to browse the latest titles.</p>';
 
 /* ---------- structured data ---------- */
@@ -97,7 +102,7 @@ const realMovies = moviesIn.filter(x => !x.sample);
 if (realMovies.length) {
   graph.push({ '@type': 'ItemList', name: 'Latest Movies', itemListElement: realMovies.map((m, i) => ({
     '@type': 'ListItem', position: i + 1,
-    item: { '@type': 'Movie', name: m.title, ...(m.year ? { dateCreated: String(m.year) } : {}), ...(m.poster ? { image: abs(m.poster) } : {}) } })) });
+    item: { '@type': 'Movie', name: m.title, ...(m.year ? { dateCreated: String(m.year) } : {}), ...((m.image || m.poster) ? { image: abs(m.image || m.poster) } : {}) } })) });
 }
 const jsonLd = ld({ '@context': 'https://schema.org', '@graph': graph });
 const breadcrumb = ld({ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy | Deeprowss', url: `${SITE}/privacy.html`, isPartOf: { '@id': `${SITE}/#website` } });
