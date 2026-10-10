@@ -36,6 +36,30 @@
       "away": "Tottenham Hotspur",
       "date": "2026-10-10T17:30:00+01:00",
       "competition": "Premier League"
+    },
+    {
+      "home": "Rayo Vallecano",
+      "away": "Athletic Club",
+      "date": "2026-10-10T13:00:00+01:00",
+      "competition": "LaLiga"
+    },
+    {
+      "home": "Deportivo Alaves",
+      "away": "Atletico Madrid",
+      "date": "2026-10-10T15:15:00+01:00",
+      "competition": "LaLiga"
+    },
+    {
+      "home": "Barcelona",
+      "away": "Getafe",
+      "date": "2026-10-10T17:30:00+01:00",
+      "competition": "LaLiga"
+    },
+    {
+      "home": "Real Madrid",
+      "away": "Villarreal",
+      "date": "2026-10-10T20:00:00+01:00",
+      "competition": "LaLiga"
     }
   ]
 }
