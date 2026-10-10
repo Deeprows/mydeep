@@ -27,7 +27,7 @@ const moviesIn = json('data/movies.json').movies || [];
 /* ---------- copy ---------- */
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT);
-for (const f of ['index.html', 'privacy.html', '404.html']) fs.copyFileSync(f, path.join(OUT, f));
+for (const f of ['index.html', 'download.html', 'privacy.html', '404.html']) fs.copyFileSync(f, path.join(OUT, f));
 for (const d of ['css', 'js', 'assets', 'data']) fs.cpSync(d, path.join(OUT, d), { recursive: true });
 fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
 if (fs.existsSync('CNAME')) fs.copyFileSync('CNAME', path.join(OUT, 'CNAME'));
@@ -50,7 +50,7 @@ const upcoming = matchesIn
 
 const fmtDate = d => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 const fmtTime = d => d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC';
-const apk = site.apkUrl || '#download';
+const apk = 'download.html';
 
 const matchesHtml = upcoming.length
   ? upcoming.map(m => `
@@ -120,6 +120,10 @@ index = mark(index, 'matches', matchesHtml + '\n      ');
 index = mark(index, 'movies', moviesHtml + '\n      ');
 fs.writeFileSync(path.join(OUT, 'index.html'), finish(index));
 
+let dl = read(path.join(OUT, 'download.html'));
+dl = dl.replaceAll('__APK_ALT__', site.apkUrlAlt || site.apkUrl || '#').replaceAll('__APK__', site.apkUrl || '#');
+fs.writeFileSync(path.join(OUT, 'download.html'), finish(dl));
+
 let privacy = read(path.join(OUT, 'privacy.html'));
 privacy = privacy.replace('</head>', `  ${breadcrumb}\n</head>`);
 fs.writeFileSync(path.join(OUT, 'privacy.html'), finish(privacy));
@@ -129,6 +133,7 @@ fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>${SITE}/download.html</loc><lastmod>${iso}</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>${SITE}/privacy.html</loc><lastmod>${iso}</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
 `);
