@@ -3,8 +3,24 @@
   "apkUrl": "https://archive.org/download/deeprowss-tv-1/Deeprowss_TV%5B1%5D.apk",
   "supportEmail": "support@deeprowss.com",
   "screenshots": [
-    { "src": "assets/app-live.webp", "alt": "Deeprowss Live Events screen showing today's football matches", "width": 1024, "height": 1536 },
-    { "src": "assets/app-highlights.webp", "alt": "Deeprowss football highlights from the EFL Cup and La Liga", "width": 1024, "height": 1536 },
-    { "src": "assets/app-movies.webp", "alt": "Deeprowss Movies screen with search and genre filters", "width": 1024, "height": 1536 }
-  ]
+    {
+      "src": "assets/app-live.webp",
+      "alt": "Deeprowss Live Events screen showing today's football matches",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "src": "assets/app-highlights.webp",
+      "alt": "Deeprowss football highlights from the EFL Cup and La Liga",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "src": "assets/app-movies.webp",
+      "alt": "Deeprowss Movies screen with search and genre filters",
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "apkUrlAlt": "https://archive.org/details/deeprowss-tv-1"
 }
