@@ -26,6 +26,7 @@
 
   /* Config: download + support links */
   if (D.apkUrl) $$('[data-apk]').forEach(a => a.setAttribute('href', D.apkUrl));
+  if (D.apkUrlAlt) $$('[data-apk-alt]').forEach(a => a.setAttribute('href', D.apkUrlAlt));
   if (D.supportEmail) $$('[data-mail]').forEach(a => a.setAttribute('href', 'mailto:' + D.supportEmail));
 
   /* Mobile menu */
@@ -97,7 +98,7 @@
       const time = m.when.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
       const date = el('span', { class: 'match-date' + (kicked ? ' live' : ''), text: kicked ? 'LIVE NOW' : `${dayLabel(m.when)} • ${time}` });
       const title = el('h3', {}, [`${m.home} `, el('b', { text: 'vs' }), ` ${m.away}`]);
-      const link = el('a', { href: D.apkUrl || '#download', 'aria-label': `Watch ${m.home} vs ${m.away} in the app` , text: 'Watch in App →' });
+      const link = el('a', { href: 'download.html', 'aria-label': `Watch ${m.home} vs ${m.away} in the app` , text: 'Watch in App →' });
       list.append(el('article', { class: 'match-card' + (kicked ? ' live' : '') }, [el('div', {}, [date, title]), link]));
     });
   }
