@@ -1,32 +1,41 @@
-[
-  {
-    "id": "1",
-    "home": "Malaga",
-    "homeFlag": "https://media.api-sports.io/football/teams/573.png",
-    "away": "Espanyol",
-    "awayFlag": "https://media.api-sports.io/football/teams/540.png",
-    "league": "LaLiga",
-    "kickoff": "2026-10-09T20:00:00+01:00",
-    "duration": 130
-  },
-  {
-    "id": "2",
-    "home": "Borussia Dortmund",
-    "homeFlag": "https://media.api-sports.io/football/teams/165.png",
-    "away": "Werder Bremen",
-    "awayFlag": "https://media.api-sports.io/football/teams/162.png",
-    "league": "Bundesliga",
-    "kickoff": "2026-10-09T19:30:00+01:00",
-    "duration": 130
-  },
-  {
-    "id": "3",
-    "home": "Lens",
-    "homeFlag": "https://media.api-sports.io/football/teams/116.png",
-    "away": "Lyon",
-    "awayFlag": "https://media.api-sports.io/football/teams/Lyon.png",
-    "league": "Ligue 1",
-    "kickoff": "2026-10-09T19:45:00+01:00",
-    "duration": 130
-  }
-]
+
+{
+  "matches": [
+    {
+      "home": "Arsenal",
+      "away": "Leeds United",
+      "date": "2026-10-10T12:30:00+01:00",
+      "competition": "Premier League"
+    },
+    {
+      "home": "Aston Villa",
+      "away": "Brentford",
+      "date": "2026-10-10T15:00:00+01:00",
+      "competition": "Premier League"
+    },
+    {
+      "home": "Chelsea",
+      "away": "AFC Bournemouth",
+      "date": "2026-10-10T15:00:00+01:00",
+      "competition": "Premier League"
+    },
+    {
+      "home": "Ipswich Town",
+      "away": "Fulham",
+      "date": "2026-10-10T15:00:00+01:00",
+      "competition": "Premier League"
+    },
+    {
+      "home": "Sunderland",
+      "away": "Brighton",
+      "date": "2026-10-10T15:00:00+01:00",
+      "competition": "Premier League"
+    },
+    {
+      "home": "Manchester United",
+      "away": "Tottenham Hotspur",
+      "date": "2026-10-10T17:30:00+01:00",
+      "competition": "Premier League"
+    }
+  ]
+}
