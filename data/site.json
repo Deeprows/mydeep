@@ -1,6 +1,6 @@
 {
   "name": "Deeprowss",
-  "apkUrl": "https://archive.org/download/deeprowss-tv-1/Deeprowss_TV%5B1%5D.apk",
+  "apkUrl": "https://archive.org/download/deeprowss-tv/Deeprowss%20TV.apk",
   "supportEmail": "support@deeprowss.com",
   "screenshots": [
     {
@@ -22,5 +22,5 @@
       "height": 1536
     }
   ],
-  "apkUrlAlt": "https://archive.org/details/deeprowss-tv-1"
+  "apkUrlAlt": "https://archive.org/download/deeprowss-tv/Deeprowss%20TV.apk"
 }
