@@ -4,7 +4,7 @@
 window.DEEPROWSS = {
   // Real APK link (e.g. a GitHub Release asset URL). Used by every download button.
   apkUrl: "https://archive.org/download/deeprowss-tv/Deeprowss%20TV.apk",
-  apkUrlAlt: "https://archive.org/download/deeprowss-tv/Deeprowss%20TV.apk",
+  apkUrlAlt: "https://mega.nz/file/HihjSbjS#1SbFvV59JCnWQooJ4iX_WriFAiEDgbvfHfFOtJPlv5c",
   supportEmail: "deeprows@gmail.com",
 
   // Add screenshots as { src: "assets/shot-1.webp", alt: "Home screen" }.
