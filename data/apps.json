@@ -1,0 +1,72 @@
+{
+  "apps": [
+    {
+      "slug": "deeprowss-movies-football",
+      "name": "Deeprowss Movie & Football",
+      "group": "Entertainment & Sports",
+      "tagline": "Live football matches and the latest movies. No ads.",
+      "tags": ["football", "soccer", "movies", "live tv", "highlights"],
+      "icon": "assets/icon-192.png",
+      "schemaCategory": "SportsApplication",
+      "useSiteApk": true,
+      "facts": [
+        { "k": "Platform", "v": "Android" },
+        { "k": "Price", "v": "Free" },
+        { "k": "Ads", "v": "None" }
+      ],
+      "about": [
+        "Deeprowss is a free Android app that puts today's football and the latest movies in one place. Open it to see which matches are live, what is coming up, and what to watch next, with no ads getting in the way.",
+        "Match times are shown in your own local time zone, so you never have to convert kickoff times again. Browse football highlights, jump into TV, or search the movies library by genre."
+      ],
+      "features": [
+        { "icon": "⚽", "title": "Live Events", "text": "Today's matches in one list, with live, upcoming and finished filters." },
+        { "icon": "🎬", "title": "Highlights", "text": "Catch up on goals and key moments from the biggest competitions." },
+        { "icon": "📺", "title": "TV", "text": "Live channels inside the same app." },
+        { "icon": "🍿", "title": "Movies", "text": "Search the library and filter by genre to find something to watch." },
+        { "icon": "🕒", "title": "Your time zone", "text": "Kickoff times are converted to your local time automatically." },
+        { "icon": "🚫", "title": "No ads", "text": "A clean, distraction-free experience." }
+      ],
+      "screenshots": [
+        { "src": "assets/app-live.webp", "alt": "Live Events screen showing today's football matches", "width": 1024, "height": 1536 },
+        { "src": "assets/app-highlights.webp", "alt": "Football highlights screen", "width": 1024, "height": 1536 },
+        { "src": "assets/app-movies.webp", "alt": "Movies screen with search and genre filters", "width": 1024, "height": 1536 }
+      ]
+    },
+    {
+      "slug": "deeprowss-browser",
+      "name": "Deeprowss Browser",
+      "group": "Browsers & Tools",
+      "tagline": "A fast mobile browser with ready-made links for visas, education, sport and online classes.",
+      "tags": ["browser", "visa sponsorship", "education", "sport", "online classes", "news", "reels"],
+      "icon": "assets/icon-browser.svg",
+      "schemaCategory": "BrowserApplication",
+      "apkUrl": "",
+      "facts": [
+        { "k": "Platform", "v": "Android" },
+        { "k": "Price", "v": "Free" }
+      ],
+      "about": [
+        "Deeprowss Browser is a mobile browser that comes with useful websites already organised for you. Instead of searching for the same pages again and again, open the home screen and tap the category you need.",
+        "Whether you are looking for visa sponsorship opportunities, study resources, sports, or online classes, the links are one tap away. Everything else works like the browser you already know, with tabs, an address bar and a downloads list."
+      ],
+      "quickLinksTitle": "Useful links, built in",
+      "quickLinks": [
+        { "icon": "🛂", "title": "Visa Sponsorship", "text": "Links to visa sponsorship and work-abroad opportunities." },
+        { "icon": "🎓", "title": "Education", "text": "Study resources, scholarships and learning websites." },
+        { "icon": "💻", "title": "Online Classes", "text": "Courses and classes you can take from your phone." },
+        { "icon": "🏅", "title": "Sports", "text": "Scores, news and sports sites in one place." },
+        { "icon": "📰", "title": "News", "text": "Headlines from several sources, not just one." },
+        { "icon": "📈", "title": "Trends", "text": "See what is trending, with a translate button." }
+      ],
+      "features": [
+        { "icon": "🎞️", "title": "Deeprows Reels", "text": "Swipe through short videos from sports, lifestyle, comedy and more." },
+        { "icon": "⬇️", "title": "Downloads", "text": "Your downloaded files are listed in one place." },
+        { "icon": "🖥️", "title": "Desktop mode", "text": "Open sites like WhatsApp Web in a layout that still fits your phone." },
+        { "icon": "🗂️", "title": "Tabs and address bar", "text": "A familiar address bar with a tab switcher and menu." },
+        { "icon": "🎨", "title": "Themes", "text": "Pick a look that suits you." },
+        { "icon": "🔒", "title": "VPN", "text": "Coming soon." }
+      ],
+      "screenshots": []
+    }
+  ]
+}
