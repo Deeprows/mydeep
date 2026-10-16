@@ -27,7 +27,7 @@ const moviesIn = json('data/movies.json').movies || [];
 /* ---------- copy ---------- */
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT);
-for (const f of ['index.html', 'download.html', 'privacy.html', '404.html']) fs.copyFileSync(f, path.join(OUT, f));
+for (const f of ['index.html', 'download.html', 'learn.html', 'privacy.html', '404.html']) fs.copyFileSync(f, path.join(OUT, f));
 for (const d of ['css', 'js', 'assets', 'data']) fs.cpSync(d, path.join(OUT, d), { recursive: true });
 fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
 if (fs.existsSync('CNAME')) fs.copyFileSync('CNAME', path.join(OUT, 'CNAME'));
@@ -124,6 +124,15 @@ let dl = read(path.join(OUT, 'download.html'));
 dl = dl.replaceAll('__APK_ALT__', site.apkUrlAlt || site.apkUrl || '#').replaceAll('__APK__', site.apkUrl || '#');
 fs.writeFileSync(path.join(OUT, 'download.html'), finish(dl));
 
+const waDigits = String(site.whatsapp || '').replace(/\D/g, '');
+if (!waDigits) console.warn('WARNING: set "whatsapp" in data/site.json (digits only, with country code) so the WhatsApp buttons work.');
+const waHref = waDigits
+  ? `https://wa.me/${waDigits}?text=${encodeURIComponent('Hi! I want to learn how to build an Android app with free AI tools.')}`
+  : `mailto:${site.supportEmail || 'support@deeprowss.com'}`;
+let learn = read(path.join(OUT, 'learn.html'));
+learn = learn.replaceAll('__WA__', waHref).replaceAll('__APK__', site.apkUrl || '#');
+fs.writeFileSync(path.join(OUT, 'learn.html'), finish(learn));
+
 let privacy = read(path.join(OUT, 'privacy.html'));
 privacy = privacy.replace('</head>', `  ${breadcrumb}\n</head>`);
 fs.writeFileSync(path.join(OUT, 'privacy.html'), finish(privacy));
@@ -134,6 +143,7 @@ fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>${SITE}/download.html</loc><lastmod>${iso}</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>${SITE}/learn.html</loc><lastmod>${iso}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${SITE}/privacy.html</loc><lastmod>${iso}</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
 `);
