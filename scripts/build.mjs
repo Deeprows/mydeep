@@ -7,6 +7,7 @@
 // - writes sitemap.xml and robots.txt
 import fs from 'node:fs';
 import path from 'node:path';
+import { buildApps } from './apps.mjs';
 
 const SITE = (process.env.SITE_URL || 'https://deeprowss.com').replace(/\/+$/, '');
 if (!/^https?:\/\//.test(SITE)) {
@@ -27,7 +28,7 @@ const moviesIn = json('data/movies.json').movies || [];
 /* ---------- copy ---------- */
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT);
-for (const f of ['index.html', 'download.html', 'learn.html', 'privacy.html', '404.html']) fs.copyFileSync(f, path.join(OUT, f));
+for (const f of ['index.html', 'download.html', 'learn.html', 'privacy.html', '404.html', 'apps.html']) fs.copyFileSync(f, path.join(OUT, f));
 for (const d of ['css', 'js', 'assets', 'data']) fs.cpSync(d, path.join(OUT, d), { recursive: true });
 fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
 if (fs.existsSync('CNAME')) fs.copyFileSync('CNAME', path.join(OUT, 'CNAME'));
@@ -137,16 +138,20 @@ let privacy = read(path.join(OUT, 'privacy.html'));
 privacy = privacy.replace('</head>', `  ${breadcrumb}\n</head>`);
 fs.writeFileSync(path.join(OUT, 'privacy.html'), finish(privacy));
 
+const apps = buildApps({ OUT, SITE, site, esc, abs, ld, read, finish });
+
 const iso = now.toISOString().slice(0, 10);
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>${SITE}/download.html</loc><lastmod>${iso}</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>${SITE}/apps.html</loc><lastmod>${iso}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+${apps.map(a => `  <url><loc>${SITE}/${a.page}</loc><lastmod>${iso}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`).join('\n')}
   <url><loc>${SITE}/learn.html</loc><lastmod>${iso}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>${SITE}/privacy.html</loc><lastmod>${iso}</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
 `);
 fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
-console.log(`Built ${OUT}/ for ${SITE} (${upcoming.length} matches, ${moviesIn.length} movies, ${graph.length} JSON-LD nodes)`);
+console.log(`Built ${OUT}/ for ${SITE} (${upcoming.length} matches, ${moviesIn.length} movies, ${apps.length} apps, ${graph.length} JSON-LD nodes)`);
