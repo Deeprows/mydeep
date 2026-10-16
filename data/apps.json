@@ -40,7 +40,7 @@
       "tags": ["browser", "visa sponsorship", "education", "sport", "online classes", "news", "reels"],
       "icon": "assets/icon-browser.svg",
       "schemaCategory": "BrowserApplication",
-      "apkUrl": "",
+      "apkUrl": "https://archive.org/download/deeprowss-browser/Deeprowss%20Browser.apk",
       "facts": [
         { "k": "Platform", "v": "Android" },
         { "k": "Price", "v": "Free" }
