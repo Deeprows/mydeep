@@ -3,8 +3,8 @@
 // ============================================================
 window.DEEPROWSS = {
   // Real APK link (e.g. a GitHub Release asset URL). Used by every download button.
-  apkUrl: "https://filemoon.org/en/user/files/download/5pVzNylJ37wv/Deeprowssv3.apk",
-  apkUrlAlt: "https://filemoon.org/en/user/files/download/5pVzNylJ37wv/Deeprowssv3.apk",
+  apkUrl: "https://files.catbox.moe/k1w0qz.apk",
+  apkUrlAlt: "https://files.catbox.moe/k1w0qz.apk",
   supportEmail: "deeprowss@gmail.com",
 
   // Add screenshots as { src: "assets/shot-1.webp", alt: "Home screen" }.
