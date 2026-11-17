@@ -56,12 +56,13 @@
     setTimeout(() => { btn.textContent = old; }, 2000);
   };
 
-  /* Chrome intent link for this same page */
+  /* Intent link that opens this page in the phone's default browser (no hard-coded Chrome package,
+     which caused "no app can perform this action" when Chrome wasn't the default or was disabled) */
   const chromeUrl = () => {
     const u = new URL(location.href);
     return 'intent://' + u.host + u.pathname + u.search +
-      '#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=' +
-      encodeURIComponent(u.href) + ';end';
+      '#Intent;scheme=https;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;' +
+      'S.browser_fallback_url=' + encodeURIComponent(u.href) + ';end';
   };
 
   ev(!isAndroid ? '1-view-not-android' : (isInApp ? '1-view-android-in-app-browser' : '1-view-android-normal-browser'));
@@ -110,12 +111,11 @@
       const where = a.dataset.track || 'link';
       track(where);
       ev('3-tap-download-' + where);
-      /* Inside an in-app browser the download would silently fail: send them to Chrome instead */
+      /* Inside an in-app browser the download would silently fail: show the open-in-browser help instead */
       if (certainInApp && !a.hasAttribute('data-force')) {
         e.preventDefault();
         showBox();
-        ev('2-auto-open-chrome');
-        setTimeout(() => { location.href = chromeUrl(); }, 350);
+        ev('2-blocked-download-tap');
         return;
       }
       if (isInApp && !a.hasAttribute('data-force')) showBox();   /* unsure case: let the download try, show help */
