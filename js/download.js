@@ -46,6 +46,7 @@
   const webview = /; wv\)|\bwv\b/.test(ua);
   const ref = document.referrer || '';
   const fromSocial = /(^|\/\/)(t\.co|twitter\.com|x\.com|l\.facebook\.com|lm\.facebook\.com|m\.facebook\.com|l\.instagram\.com)\b|android-app:\/\/com\.(twitter|facebook|instagram)/i.test(ref);
+  const metaApp = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Messenger/i.test(ua);   /* these allow the open-in-browser link */
   const isInApp = isAndroid && (knownApp || webview || fromSocial);
   const certainInApp = isAndroid && (knownApp || webview);   /* downloads almost surely blocked */
 
@@ -83,15 +84,38 @@
     box.scrollIntoView({ behavior: 'smooth', block: 'center' });
     box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
   };
+  const openBtn = $('#iab-open');
+  const copyBtn = $('#iab-copy');
+  const help = $('#iab-help');
+  const status = $('#iab-status');
+  const copySilently = async () => {
+    try { await navigator.clipboard.writeText(location.href); return true; } catch (e) { return false; }
+  };
   if (isInApp && box) {
     box.hidden = false;
-    const open = $('#iab-open');
-    if (open) {
-      open.href = chromeUrl();
-      open.addEventListener('click', () => ev('2-tap-open-in-chrome'));
+    if (metaApp) {
+      /* Facebook / Instagram: the browser-intent link works */
+      if (openBtn) {
+        openBtn.href = chromeUrl();
+        openBtn.addEventListener('click', () => ev('2-tap-open-in-browser'));
+      }
+      if (copyBtn) copyBtn.addEventListener('click', () => copy(copyBtn));
+    } else {
+      /* X / Twitter and other apps block intent links ("no app can perform this action"),
+         so copy the link and tell people how to open it in their browser */
+      if (openBtn) {
+        openBtn.textContent = 'Copy link to open in browser';
+        openBtn.href = '#';
+        openBtn.addEventListener('click', async e => {
+          e.preventDefault();
+          ev('2-tap-copy-link');
+          const ok = await copySilently();
+          if (status) { status.hidden = false; status.textContent = ok ? 'Link copied. Now open Chrome and paste it in the address bar.' : 'Could not copy automatically. Tap the \u22ee menu near the page address and choose Open in browser.'; }
+        });
+      }
+      if (copyBtn) copyBtn.hidden = true;
+      if (help) help.innerHTML = 'Or tap <b>&#8942;</b> next to the page address (or at the top right), then choose <b>Open in browser</b> or <b>Open in Chrome</b>.';
     }
-    const c = $('#iab-copy');
-    if (c) c.addEventListener('click', () => copy(c));
   }
 
   /* Download tap: track, then show the "what next" sheet */
@@ -116,6 +140,7 @@
         e.preventDefault();
         showBox();
         ev('2-blocked-download-tap');
+        if (!metaApp) copySilently().then(ok => { if (ok && status) { status.hidden = false; status.textContent = 'Link copied. Now open Chrome and paste it in the address bar.'; } });
         return;
       }
       if (isInApp && !a.hasAttribute('data-force')) showBox();   /* unsure case: let the download try, show help */
