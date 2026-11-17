@@ -72,13 +72,14 @@
 
 <main id="main">
 
-  <!-- Shown only inside Facebook / Instagram in-app browsers, which often block APK downloads -->
+  <!-- Shown inside in-app browsers (Facebook, Instagram, X/Twitter, TikTok...), which often block APK downloads -->
   <section class="iab" id="iab" hidden aria-labelledby="iab-title">
     <h2 id="iab-title">Open in Chrome to download</h2>
-    <p>Facebook&rsquo;s built-in browser can block app downloads. Tap the button to continue in your normal browser.</p>
+    <p>This app&rsquo;s built-in browser blocks app downloads. Tap the button to continue in Chrome, then download.</p>
     <a class="iab-btn" id="iab-open" href="#">Open in Chrome</a>
     <p class="iab-alt">Button didn&rsquo;t work? Tap <b>&#8942;</b> (top right), then <b>Open in browser</b>. Or
-      <button type="button" class="linklike" id="iab-copy">copy this page link</button>.</p>
+      <button type="button" class="linklike" id="iab-copy">copy this page link</button> and paste it into Chrome.</p>
+    <p class="iab-alt"><a data-apk data-force data-track="iab-direct" href="__APK__" rel="noopener">Try direct download anyway</a></p>
   </section>
 
   <!-- HERO -->
@@ -196,7 +197,7 @@
       </details>
       <details>
         <summary>The download won&rsquo;t start</summary>
-        <p>If you opened this page from Facebook, use <b>Open in Chrome</b> first. Otherwise try the backup link and check your connection.</p>
+        <p>If you opened this page from Facebook, Instagram or X (Twitter), use <b>Open in Chrome</b> first. Otherwise try the backup link and check your connection.</p>
       </details>
       <details>
         <summary>The app won&rsquo;t install or open</summary>
